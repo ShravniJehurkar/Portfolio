@@ -485,10 +485,10 @@ function Contact() {
       </a>
       <div className="contact-bottom">
         <div className="socials">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/shravni-jehurkar/" target="_blank" rel="noreferrer">
             <Linkedin size={16} /> LINKEDIN <MoveUpRight size={13} />
           </a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
+          <a href="https://github.com/ShravniJehurkar" target="_blank" rel="noreferrer">
             <Github size={16} /> GITHUB <MoveUpRight size={13} />
           </a>
           <a href="mailto:shravni.jehurkar@gmail.com">
