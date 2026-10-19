@@ -287,8 +287,8 @@ function About() {
             </p>
             <a
               className="resume-link"
-              href="/resume.pdf"
-              download="Shravni-Jehurkar-Resume.pdf"
+              href="/Shravni_Jehurkar_Resume.pdf"
+              download="Shravni_Jehurkar_Resume.pdf"
             >
               DOWNLOAD RESUME <ArrowDownRight size={16} />
             </a>
