@@ -13,6 +13,16 @@ import {
 const projects = [
   {
     number: "01",
+    title: "EduTrust",
+    subtitle: "AI-powered certificate verification",
+    description:
+      "A full-stack certificate verification system that combines image-forgery detection with a DenseNet121 model trained on ELA images, OCR with database matching, and signature verification. A React dashboard brings the three checks together in one verification workflow.",
+    tags: ["Python", "FastAPI", "TensorFlow", "DenseNet121", "OCR", "React"],
+    kind: "edutrust",
+    year: "2026",
+  },
+  {
+    number: "02",
     title: "3D Digital Twin",
     subtitle: "Beverage production line",
     description:
@@ -22,24 +32,14 @@ const projects = [
     year: "2026",
   },
   {
-    number: "02",
-    title: "Goaldigger",
+    number: "03",
+    title: "Goal Digger",
     subtitle: "Career discovery platform",
     description:
       "A career guidance platform built around the Japanese Ikigai framework, mapping questionnaire responses to career paths. Adopted by 500+ students with a 4.8/5 CSAT score.",
     tags: ["React", "Node.js", "Express"],
     kind: "ikigai",
     year: "2026",
-  },
-  {
-    number: "03",
-    title: "Face Mask Detection",
-    subtitle: "Real-time computer vision",
-    description:
-      "A webcam-based computer vision pipeline combining Haar Cascade face detection with a custom CNN classifier to identify Mask / No Mask.",
-    tags: ["Python", "OpenCV", "TensorFlow", "CNN"],
-    kind: "vision",
-    year: "2025",
   },
 ];
 
@@ -87,6 +87,54 @@ const skills = [
 ];
 
 function ProjectArt({ kind }) {
+  if (kind === "edutrust")
+    return (
+      <div className="art art-edutrust" role="img" aria-label="EduTrust certificate verification concept showing image forensics, OCR database matching, and signature verification">
+        <div className="edu-topbar">
+          <span className="edu-brand">EDUTRUST<span>.</span></span>
+          <span className="edu-status"><i /> VERIFICATION SYSTEM</span>
+        </div>
+        <div className="edu-dashboard">
+          <div className="edu-document">
+            <span className="edu-doc-label">CERTIFICATE ANALYSIS</span>
+            <div className="edu-paper">
+              <div className="edu-seal">ET</div>
+              <span className="edu-paper-heading">CERTIFICATE</span>
+              <span className="edu-line long" />
+              <span className="edu-line medium" />
+              <span className="edu-line short" />
+              <div className="edu-highlight"><span /></div>
+              <div className="edu-signature"><span>AUTHORIZED SIGNATURE</span><i /></div>
+              <span className="edu-doc-footer">DOCUMENT FORENSICS</span>
+            </div>
+          </div>
+          <div className="edu-results">
+            <span className="edu-results-label">VERIFICATION MODULES</span>
+            <div className="edu-check">
+              <div className="edu-check-icon">01</div>
+              <div><strong>IMAGE FORENSICS</strong><span>DenseNet121 · ELA</span></div>
+              <b>✓</b>
+            </div>
+            <div className="edu-check">
+              <div className="edu-check-icon">02</div>
+              <div><strong>OCR + DATABASE</strong><span>Text extraction · Matching</span></div>
+              <b>✓</b>
+            </div>
+            <div className="edu-check">
+              <div className="edu-check-icon">03</div>
+              <div><strong>SIGNATURE CHECK</strong><span>Signature verification</span></div>
+              <b>✓</b>
+            </div>
+            <div className="edu-engine">
+              <span>AI VERIFICATION PIPELINE</span>
+              <strong>THREE-LAYER ANALYSIS</strong>
+              <div className="edu-progress"><i /><i /><i /></div>
+            </div>
+          </div>
+        </div>
+        <span className="art-label">AI DOCUMENT VERIFICATION / 01</span>
+      </div>
+    );
   if (kind === "factory")
     return (
       <div
@@ -287,8 +335,8 @@ function About() {
             </p>
             <a
               className="resume-link"
-              href="/Shravni_Jehurkar_Resume.pdf"
-              download="Shravni_Jehurkar_Resume.pdf"
+              href="/Shravni_Jehurkar_Resume_.pdf"
+              download="Shravni_Jehurkar_Resume_.pdf"
             >
               DOWNLOAD RESUME <ArrowDownRight size={16} />
             </a>
@@ -364,7 +412,7 @@ function Experience() {
         <span>EDUCATION</span>
         <div>
           <strong>VIT Bhopal University</strong>
-          <p>B.Tech · Computer Science & Engineering, AIML · 2023–2027</p>
+          <p>B.Tech · Computer Science & Engineering with specialization in Artificial Intelligence and Machine Learning · 2023–2027</p>
         </div>
         <strong className="education-score">
           8.81 <small>/ 10 CGPA</small>
@@ -394,7 +442,7 @@ function Projects() {
       </div>
       <div className="project-list">
         {projects.map((project) => (
-          <article className="project-card" key={project.number}>
+          <article className={`project-card ${project.featured ? "project-card-featured" : ""}`} key={project.number}>
             <ProjectArt kind={project.kind} />
             <div className="project-info">
               <div className="project-meta">
@@ -414,9 +462,15 @@ function Projects() {
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
-              <a className="project-link" href="#contact">
-                ASK ME ABOUT THIS PROJECT <ArrowUpRight size={16} />
-              </a>
+              {project.github ? (
+                <a className="project-link" href={project.github} target="_blank" rel="noreferrer">
+                  VIEW SOURCE ON GITHUB <ArrowUpRight size={16} />
+                </a>
+              ) : (
+                <a className="project-link" href="#contact">
+                  ASK ME ABOUT THIS PROJECT <ArrowUpRight size={16} />
+                </a>
+              )}
             </div>
           </article>
         ))}
@@ -485,7 +539,7 @@ function Contact() {
       </a>
       <div className="contact-bottom">
         <div className="socials">
-          <a href="https://www.linkedin.com/shravni-jehurkar/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/shravni-jehurkar/" target="_blank" rel="noreferrer">
             <Linkedin size={16} /> LINKEDIN <MoveUpRight size={13} />
           </a>
           <a href="https://github.com/ShravniJehurkar" target="_blank" rel="noreferrer">
